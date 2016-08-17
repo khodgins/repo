@@ -38,13 +38,21 @@ Your goal for today is to assemble a bacterial genome, as best you can, using th
 
 This genome was downloaded from GAGE (Genome Assembly Gold-Standard Evaluations) website (http://gage.cbcb.umd.edu/data/index.html): 
 
+
 Details for this dataset are as follows: 
-*Species: Staphylococcus aureus
-*Actual genome size: 2,860,307 bp
-*Type: Paired end
-*Read number (total - including both reads per pair): 1,294,104
-*Read size (each read): 101 bp 
-*Insert length (sd): 180 bp (+/-20 bp) 
+
+Species: Staphylococcus aureus
+
+Actual genome size: 2,860,307 bp
+
+Type: Paired end
+
+Read number (total - including both reads per pair): 1,294,104
+
+Read size (each read): 101 bp 
+
+Insert length (sd): 180 bp (+/-20 bp) 
+
 
 The data is located in ~/data/Topic5. One file contains the forward read (frag_1.fastq.gz) and the other file contains the reverse read (frag_2.fastq.gz). Each read has a match from the same fragment in the other file and is in the same order in the matching file.
 
@@ -85,10 +93,16 @@ Here is an example command line:
 velveth sa_assembly21 21 -shortPaired -fastq  -separate ~/data/Topic5/frag_1.fastq ~/data/Topic5/frag_2.fastq
 ```
 
-*21 is the kmer length
-*-shortParied specifies the types of reads (paired end)
-*-fastq is the type of sequence format
-*-separate tells the programs that the paired reads are in two separate files (one with *read 1 (frag_1) and one with read 2 (frag_2))
+21 is the kmer length
+
+-shortParied specifies the types of reads (paired end)
+
+-fastq is the type of sequence format
+
+-separate tells the programs that the paired reads are in two separate files (one with 
+
+read 1 (frag_1) and one with read 2 (frag_2))
+
 
 Run the above command.
 
@@ -208,10 +222,15 @@ Typically, the longer the k-mer, the better the assembly, until you hit the poin
 If you want to modify other parameters you can simply run velvetg without rerunning velveth. (Note that if you re-run fasta_lengths_workshop.pl and velvetg using the same filenames in the same directory the files will be written over, so either record your run options and assembly metrics, rename the output files or move them to a new directory to retain the information).
 
 Some potential parameters to modify include (see the manual for details):
-*-min_contig_lgth
-*-cov_cutoff
-*-ins_length 
-*-ins_length_sd 
-*-exp_cov (note that for this parameter you can include an estimated expected k-mer coverage or ask velvet to estimate it from the data by typing -exp_cov auto)
+
+-min_contig_lgth
+
+-cov_cutoff
+
+-ins_length 
+
+-ins_length_sd 
+
+-exp_cov (note that for this parameter you can include an estimated expected k-mer coverage or ask velvet to estimate it from the data by typing -exp_cov auto)
 
 Be sure to test -exp_cov.
